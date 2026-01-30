@@ -1,0 +1,6 @@
+/home/forrest/cuda/miniGEMM/build/CMakeFiles/edit_cache.dir
+/home/forrest/cuda/miniGEMM/build/CMakeFiles/rebuild_cache.dir
+/home/forrest/cuda/miniGEMM/build/src/CMakeFiles/MatrixLib.dir
+/home/forrest/cuda/miniGEMM/build/src/CMakeFiles/cpu_bench.dir
+/home/forrest/cuda/miniGEMM/build/src/CMakeFiles/edit_cache.dir
+/home/forrest/cuda/miniGEMM/build/src/CMakeFiles/rebuild_cache.dir
