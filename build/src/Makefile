@@ -168,6 +168,30 @@ gemm_cpu.cpp.s:
 	cd /home/forrest/cuda/miniGEMM/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/MatrixLib.dir/build.make src/CMakeFiles/MatrixLib.dir/gemm_cpu.cpp.s
 .PHONY : gemm_cpu.cpp.s
 
+gemm_cuda.o: gemm_cuda.cu.o
+.PHONY : gemm_cuda.o
+
+# target to build an object file
+gemm_cuda.cu.o:
+	cd /home/forrest/cuda/miniGEMM/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/MatrixLib.dir/build.make src/CMakeFiles/MatrixLib.dir/gemm_cuda.cu.o
+.PHONY : gemm_cuda.cu.o
+
+gemm_cuda.i: gemm_cuda.cu.i
+.PHONY : gemm_cuda.i
+
+# target to preprocess a source file
+gemm_cuda.cu.i:
+	cd /home/forrest/cuda/miniGEMM/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/MatrixLib.dir/build.make src/CMakeFiles/MatrixLib.dir/gemm_cuda.cu.i
+.PHONY : gemm_cuda.cu.i
+
+gemm_cuda.s: gemm_cuda.cu.s
+.PHONY : gemm_cuda.s
+
+# target to generate assembly for a file
+gemm_cuda.cu.s:
+	cd /home/forrest/cuda/miniGEMM/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/MatrixLib.dir/build.make src/CMakeFiles/MatrixLib.dir/gemm_cuda.cu.s
+.PHONY : gemm_cuda.cu.s
+
 gen_mats.o: gen_mats.cpp.o
 .PHONY : gen_mats.o
 
@@ -229,6 +253,9 @@ help:
 	@echo "... gemm_cpu.o"
 	@echo "... gemm_cpu.i"
 	@echo "... gemm_cpu.s"
+	@echo "... gemm_cuda.o"
+	@echo "... gemm_cuda.i"
+	@echo "... gemm_cuda.s"
 	@echo "... gen_mats.o"
 	@echo "... gen_mats.i"
 	@echo "... gen_mats.s"

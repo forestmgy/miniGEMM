@@ -93,6 +93,7 @@ cpu_bench_EXTERNAL_OBJECTS =
 src/cpu_bench: src/CMakeFiles/cpu_bench.dir/main.cpp.o
 src/cpu_bench: src/CMakeFiles/cpu_bench.dir/build.make
 src/cpu_bench: src/libMatrixLib.a
+src/cpu_bench: /usr/local/cuda-12.9/targets/x86_64-linux/lib/libcudart.so
 src/cpu_bench: src/CMakeFiles/cpu_bench.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/forrest/cuda/miniGEMM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable cpu_bench"
 	cd /home/forrest/cuda/miniGEMM/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cpu_bench.dir/link.txt --verbose=$(VERBOSE)

@@ -1,2 +1,2 @@
-/usr/bin/ar qc libMatrixLib.a CMakeFiles/MatrixLib.dir/gemm_cpu.cpp.o CMakeFiles/MatrixLib.dir/gen_mats.cpp.o
+/usr/bin/ar qc libMatrixLib.a CMakeFiles/MatrixLib.dir/gemm_cpu.cpp.o CMakeFiles/MatrixLib.dir/gen_mats.cpp.o CMakeFiles/MatrixLib.dir/gemm_cuda.cu.o
 /usr/bin/ranlib libMatrixLib.a

@@ -40,17 +40,24 @@ int main() {
     double flops = benchmark(A, B, C, GEMM_cpu_naive);
     std::cout << "gflops: " << flops << "\n";
 
-    std::cout << "start loop interchange GEMM: \n";
-    flops = benchmark(A, B, C, GEMM_cpu_loop_interchange);
+    // std::cout << "start loop interchange GEMM: \n";
+    // flops = benchmark(A, B, C, GEMM_cpu_loop_interchange);
+    // std::cout << "gflops: " << flops << "\n";
+
+    // std::cout << "start loop unroll: \n";
+    // flops = benchmark(A, B, C, GEMM_cpu_loop_unroll);
+    // std::cout << "gflops: " << flops << "\n";
+
+    // std::cout << "start loop tiling: \n";
+    // flops = benchmark(A, B, C, GEMM_cpu_loop_tiling);
+    // std::cout << "gflops: " << flops << "\n";
+
+    std::cout << "start gpu naive: \n";
+    flops = benchmark(A, B, C, GEMM_GPU_naive);
     std::cout << "gflops: " << flops << "\n";
 
-    std::cout << "start loop unroll: \n";
-    flops = benchmark(A, B, C, GEMM_cpu_loop_unroll);
+    std::cout << "start gpu tile: \n";
+    flops = benchmark(A, B, C, GEMM_GPU_tile);
     std::cout << "gflops: " << flops << "\n";
-
-    std::cout << "start loop tiling: \n";
-    flops = benchmark(A, B, C, GEMM_cpu_loop_tiling);
-    std::cout << "gflops: " << flops << "\n";
-
     
 }

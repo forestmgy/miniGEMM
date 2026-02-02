@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/forrest/cuda/miniGEMM/src/include
+CXX_INCLUDES = -I/home/forrest/cuda/miniGEMM/src/include -isystem /usr/local/cuda/targets/x86_64-linux/include
 
 CXX_FLAGS = 
 
