@@ -67,3 +67,10 @@ void GEMM_cpu_loop_tiling(const std::vector<float>& A, const std::vector<float>&
         }
     }
 }
+
+
+float reduce_cpu_sum(const std::vector<float>& x, int N) {
+    float s = 0.0f;
+    for (int i = 0; i < N; ++i) s += x[i];
+    return s;
+}

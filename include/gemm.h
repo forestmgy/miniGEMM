@@ -22,3 +22,7 @@ void GEMM_GPU_naive(const std::vector<float>& A, const std::vector<float>& B, st
                     size_t p);
 
 void GEMM_GPU_tile(const std::vector<float>& A, const std::vector<float>& B, std::vector<float>& C, int n, int m, int p);
+
+float reduce_cpu_sum(const float* x, int N);
+
+float reduce_gpu(const std::vector<float>& A, int N);

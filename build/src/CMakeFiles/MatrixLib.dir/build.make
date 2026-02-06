@@ -112,11 +112,27 @@ src/CMakeFiles/MatrixLib.dir/gemm_cuda.cu.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CUDA source to assembly CMakeFiles/MatrixLib.dir/gemm_cuda.cu.s"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CUDA_CREATE_ASSEMBLY_SOURCE
 
+src/CMakeFiles/MatrixLib.dir/reduce_cuda.cu.o: src/CMakeFiles/MatrixLib.dir/flags.make
+src/CMakeFiles/MatrixLib.dir/reduce_cuda.cu.o: src/CMakeFiles/MatrixLib.dir/includes_CUDA.rsp
+src/CMakeFiles/MatrixLib.dir/reduce_cuda.cu.o: /home/forrest/cuda/miniGEMM/src/reduce_cuda.cu
+src/CMakeFiles/MatrixLib.dir/reduce_cuda.cu.o: src/CMakeFiles/MatrixLib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/forrest/cuda/miniGEMM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CUDA object src/CMakeFiles/MatrixLib.dir/reduce_cuda.cu.o"
+	cd /home/forrest/cuda/miniGEMM/build/src && /usr/local/cuda/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -MD -MT src/CMakeFiles/MatrixLib.dir/reduce_cuda.cu.o -MF CMakeFiles/MatrixLib.dir/reduce_cuda.cu.o.d -x cu -c /home/forrest/cuda/miniGEMM/src/reduce_cuda.cu -o CMakeFiles/MatrixLib.dir/reduce_cuda.cu.o
+
+src/CMakeFiles/MatrixLib.dir/reduce_cuda.cu.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CUDA source to CMakeFiles/MatrixLib.dir/reduce_cuda.cu.i"
+	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CUDA_CREATE_PREPROCESSED_SOURCE
+
+src/CMakeFiles/MatrixLib.dir/reduce_cuda.cu.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CUDA source to assembly CMakeFiles/MatrixLib.dir/reduce_cuda.cu.s"
+	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CUDA_CREATE_ASSEMBLY_SOURCE
+
 # Object files for target MatrixLib
 MatrixLib_OBJECTS = \
 "CMakeFiles/MatrixLib.dir/gemm_cpu.cpp.o" \
 "CMakeFiles/MatrixLib.dir/gen_mats.cpp.o" \
-"CMakeFiles/MatrixLib.dir/gemm_cuda.cu.o"
+"CMakeFiles/MatrixLib.dir/gemm_cuda.cu.o" \
+"CMakeFiles/MatrixLib.dir/reduce_cuda.cu.o"
 
 # External object files for target MatrixLib
 MatrixLib_EXTERNAL_OBJECTS =
@@ -124,9 +140,10 @@ MatrixLib_EXTERNAL_OBJECTS =
 src/libMatrixLib.a: src/CMakeFiles/MatrixLib.dir/gemm_cpu.cpp.o
 src/libMatrixLib.a: src/CMakeFiles/MatrixLib.dir/gen_mats.cpp.o
 src/libMatrixLib.a: src/CMakeFiles/MatrixLib.dir/gemm_cuda.cu.o
+src/libMatrixLib.a: src/CMakeFiles/MatrixLib.dir/reduce_cuda.cu.o
 src/libMatrixLib.a: src/CMakeFiles/MatrixLib.dir/build.make
 src/libMatrixLib.a: src/CMakeFiles/MatrixLib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/forrest/cuda/miniGEMM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libMatrixLib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/forrest/cuda/miniGEMM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libMatrixLib.a"
 	cd /home/forrest/cuda/miniGEMM/build/src && $(CMAKE_COMMAND) -P CMakeFiles/MatrixLib.dir/cmake_clean_target.cmake
 	cd /home/forrest/cuda/miniGEMM/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MatrixLib.dir/link.txt --verbose=$(VERBOSE)
 

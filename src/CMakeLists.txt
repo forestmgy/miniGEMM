@@ -2,6 +2,7 @@ add_library(MatrixLib STATIC
     gemm_cpu.cpp 
     gen_mats.cpp
     gemm_cuda.cu
+    reduce_cuda.cu
 )
 find_package(CUDAToolkit REQUIRED)
 target_link_libraries(MatrixLib PUBLIC CUDA::cudart)

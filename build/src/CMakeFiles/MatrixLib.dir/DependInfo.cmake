@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/forrest/cuda/miniGEMM/src/gemm_cuda.cu" "src/CMakeFiles/MatrixLib.dir/gemm_cuda.cu.o" "gcc" "src/CMakeFiles/MatrixLib.dir/gemm_cuda.cu.o.d"
+  "/home/forrest/cuda/miniGEMM/src/reduce_cuda.cu" "src/CMakeFiles/MatrixLib.dir/reduce_cuda.cu.o" "gcc" "src/CMakeFiles/MatrixLib.dir/reduce_cuda.cu.o.d"
   "/home/forrest/cuda/miniGEMM/src/gemm_cpu.cpp" "src/CMakeFiles/MatrixLib.dir/gemm_cpu.cpp.o" "gcc" "src/CMakeFiles/MatrixLib.dir/gemm_cpu.cpp.o.d"
   "/home/forrest/cuda/miniGEMM/src/gen_mats.cpp" "src/CMakeFiles/MatrixLib.dir/gen_mats.cpp.o" "gcc" "src/CMakeFiles/MatrixLib.dir/gen_mats.cpp.o.d"
   )

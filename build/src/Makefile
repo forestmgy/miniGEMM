@@ -240,6 +240,30 @@ main.cpp.s:
 	cd /home/forrest/cuda/miniGEMM/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/cpu_bench.dir/build.make src/CMakeFiles/cpu_bench.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+reduce_cuda.o: reduce_cuda.cu.o
+.PHONY : reduce_cuda.o
+
+# target to build an object file
+reduce_cuda.cu.o:
+	cd /home/forrest/cuda/miniGEMM/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/MatrixLib.dir/build.make src/CMakeFiles/MatrixLib.dir/reduce_cuda.cu.o
+.PHONY : reduce_cuda.cu.o
+
+reduce_cuda.i: reduce_cuda.cu.i
+.PHONY : reduce_cuda.i
+
+# target to preprocess a source file
+reduce_cuda.cu.i:
+	cd /home/forrest/cuda/miniGEMM/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/MatrixLib.dir/build.make src/CMakeFiles/MatrixLib.dir/reduce_cuda.cu.i
+.PHONY : reduce_cuda.cu.i
+
+reduce_cuda.s: reduce_cuda.cu.s
+.PHONY : reduce_cuda.s
+
+# target to generate assembly for a file
+reduce_cuda.cu.s:
+	cd /home/forrest/cuda/miniGEMM/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/MatrixLib.dir/build.make src/CMakeFiles/MatrixLib.dir/reduce_cuda.cu.s
+.PHONY : reduce_cuda.cu.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -262,6 +286,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... reduce_cuda.o"
+	@echo "... reduce_cuda.i"
+	@echo "... reduce_cuda.s"
 .PHONY : help
 
 

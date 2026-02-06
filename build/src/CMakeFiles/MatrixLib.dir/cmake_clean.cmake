@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/MatrixLib.dir/gemm_cuda.cu.o.d"
   "CMakeFiles/MatrixLib.dir/gen_mats.cpp.o"
   "CMakeFiles/MatrixLib.dir/gen_mats.cpp.o.d"
+  "CMakeFiles/MatrixLib.dir/reduce_cuda.cu.o"
+  "CMakeFiles/MatrixLib.dir/reduce_cuda.cu.o.d"
   "libMatrixLib.a"
   "libMatrixLib.pdb"
 )
