@@ -4,6 +4,39 @@
 
 #include "../include/gemm.h"
 
+__device__ __forceinline__ float warp_reduce_sum(float val) {
+    for (int offset = 16; offset > 0; offset /= 2) {
+        val += __shfl_down_sync(0xffffffff, val, offset);
+    }
+    return val;
+}
+
+__global__ void reduce2(float* x, int N, float* partial) {
+    extern __shared__ float s[];
+    int tid = threadIdx.x;
+    int base = blockDim.x * blockIdx.x * 2 + tid;
+    float sum = 0.0f;
+    if (base < N) sum += x[base];
+    if (base + blockDim.x < N) sum += x[base + blockDim.x];
+    s[tid] = sum;
+    __syncthreads();
+
+    for (int stride = blockDim.x / 2; stride > 32; stride /= 2) {
+        if (tid < stride) {
+            s[tid] += s[tid + stride];
+        }
+        __syncthreads();
+    }
+    // stride现在等于 32
+    if (tid < 32) {
+        float val = s[tid];
+        val = warp_reduce_sum(val);
+        if (tid == 0) {
+            partial[blockIdx.x] = val;
+        }
+    }
+}
+
 __global__ void reduce0(float* x, int N, float* partial) {
     // 不可以 s[blockDim.x] ?
     extern __shared__ float s[];
@@ -82,6 +115,34 @@ float reduce_gpu(const std::vector<float>& A, int N) {
     threads2 = std::min(threads2, 1024);
 
     reduce0<<<blocks, threads, shmem>>>(d_A, N, partial);
+    reduce_once<<<1, threads2, threads2 * sizeof(float)>>>(partial, blocks, dres);
+
+    cudaMemcpy(&res, dres, sizeof(float), cudaMemcpyDeviceToHost);
+    cudaFree(d_A);
+    cudaFree(partial);
+    cudaFree(dres);
+    return res;
+}
+
+float reduce_gpu1(const std::vector<float>& A, int N) {
+    int threads = 1024;
+    int blocks = (N + threads * 2 - 1) / (threads * 2);
+    size_t shmem = threads * sizeof(float);
+
+    float* partial = nullptr;
+    float* dres;
+    float res;
+    size_t size_A = A.size() * sizeof(float);
+    float* d_A = nullptr;
+    cudaMalloc(&d_A, size_A);
+    cudaMalloc(&dres, sizeof(float));
+    cudaMalloc(&partial, blocks * sizeof(float));
+    cudaMemcpy(d_A, A.data(), size_A, cudaMemcpyHostToDevice);
+    int threads2 = 1;
+    while (threads2 < blocks) threads2 <<= 1;  // 取到 >= blocks 的 2^k
+    threads2 = std::min(threads2, 1024);
+
+    reduce2<<<blocks, threads, shmem>>>(d_A, N, partial);
     reduce_once<<<1, threads2, threads2 * sizeof(float)>>>(partial, blocks, dres);
 
     cudaMemcpy(&res, dres, sizeof(float), cudaMemcpyDeviceToHost);
